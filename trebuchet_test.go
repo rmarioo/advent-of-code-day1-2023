@@ -31,7 +31,7 @@ func TestTrebuchet(t *testing.T) {
 	assertEquals(Trebuchet(linesSupplier), 12+56+21+83+79, t)
 }
 
-func TestTrebuchetAcceptance(t *testing.T) {
+func TestTrebuchetIntegration(t *testing.T) {
 
 	linesSupplier := FromFileLinesSupplier{fileName: "input.txt"}
 
