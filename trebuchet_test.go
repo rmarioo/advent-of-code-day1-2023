@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestSingleNumberInString(t *testing.T) {
 
@@ -17,18 +19,23 @@ func TestMoreThanTwoNumbersInString(t *testing.T) {
 	assertEquals(DigitsIn("dfg3vfd4g8sdf7sd"), 37, t)
 }
 
+func TestTwoWordNumbersOverlapping(t *testing.T) {
+
+	assertEquals(DigitsIn("eighthree"), 83, t)
+}
+
 func TestTrebuchet(t *testing.T) {
 
-	linesSupplier := StubLinesSupplier{lines: []string{"1g2", "5h6"}}
+	linesSupplier := StubLinesSupplier{lines: []string{"1g2", "5h6", "bla2onebla", "eighthree", "sevenine"}}
 
-	assertEquals(Trebuchet(linesSupplier), 12+56, t)
+	assertEquals(Trebuchet(linesSupplier), 12+56+21+83+79, t)
 }
 
 func TestTrebuchetAcceptance(t *testing.T) {
 
 	linesSupplier := FromFileLinesSupplier{fileName: "input.txt"}
 
-	assertEquals(Trebuchet(linesSupplier), 55130, t)
+	assertEquals(Trebuchet(linesSupplier), 54985, t)
 }
 
 type StubLinesSupplier struct {
